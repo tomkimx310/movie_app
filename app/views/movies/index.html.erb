@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="css/bootstrap.css" type="text/css/">
+	<title>Reflix | The Best Movie App</title>
+</head>
+
+<body>
+	<div class="container">
+		<div class="navbar">
+      <div class="navbar-inner">
+        <div class="container">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="/movies">Home</a></li>
+            <li><a href="/search">Search</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+	<h1>Welcome to Retflix!</h1>
+		<h2>See our collection of movies below:</h2>
+		<div class="movies">
+			<ul>
+				<% @movies.each do |movie| %>
+					<li>
+						<%= link_to(movie.name, "/movies/#{movie.id}") %>
+						<%= link_to("Edit", "movies/#{movie.id}/edit") %> | 
+						<%= link_to("Delete", "movies/#{movie.id}", :confirm => "Are you sure?", 
+												:method => :delete) %>
+					</li>
+				<% end %>
+			</ul>
+		</div>
+
+		<%= link_to "Add Movie", "/movies/new" %>
+
+		<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+		<script src="js/bootstrap.jr"></script>
+	</div>
+</body>

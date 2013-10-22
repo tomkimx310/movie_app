@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="css/bootstrap.css" type="text/css">
+	<title>Reflix | The Best Movie App</title>
+</head>
+
+<body>
+	<div class="container">
+		<div class="navbar">
+      <div class="navbar-inner">
+        <div class="container">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="/movies">Home</a></li>
+            <li><a href="/movies/search">Search</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+		<h1>Now Editing:</h1>
+
+			<h3><%= @movie.name %></h3>
+
+			<%= simple_form_for(@movie, html: {class: 'form-horizontal' }) do |f| %>
+
+				<% if @movie.errors.any? %>
+					<h3>Errors:</h3>
+					<ul>
+						<% @movie.errors.full_messages.each do |message| %>
+							<li><%= message %></li>
+						<% end %>
+					</ul>
+				<% end %>
+
+			 	<%= f.label "Movie Name: " %>
+				<%= f.input :name %>
+				<br>
+				<%= f.label "Genre: " %>
+				<%= f.input :genre %>
+				<br>
+				<%= f.label "Year: "%>
+				<%= f.input :year, collection: 1900..2015 %>
+				<br>
+				<%= f.submit "Update" %>	
+
+			<% end %>
+
+		<%= link_to "Cancel", "/movies" %>
+
+	</div>
+</body>

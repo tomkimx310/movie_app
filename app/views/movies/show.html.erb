@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="css/bootstrap.css" type="text/css">
+</head>
+
+<body>
+	<div class="container">
+		<h1><%= @movie.name %></h1>
+		<h3>Details:</h3>
+
+		<ul>
+			<li>Genre: <%=@movie.genre %></li>
+			<li>Year:	 <%=@movie.year %></li>
+		</ul>
+		
+		<%= link_to "Go Back", "/movies" %>
+
+	</div>
+</body>
